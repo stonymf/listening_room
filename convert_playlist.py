@@ -3,9 +3,7 @@ import json
 
 from youtubesearchpython import VideosSearch
 
-access_token = "<your_spotify_access_token>"
-
-def convert_spotify_to_youtube(playlist_url):
+def convert_spotify_to_youtube(playlist_url, spotify_access_token):
     # Get the playlist ID from the URL
     playlist_id = playlist_url.split('/')[-1]
     print(playlist_id)
@@ -13,7 +11,7 @@ def convert_spotify_to_youtube(playlist_url):
     # Make a request to the Spotify API to get the playlist details
     spotify_api_url = f"https://api.spotify.com/v1/playlists/{playlist_id}"
     headers = {
-        'Authorization': 'Bearer {}'.format(access_token)
+        'Authorization': 'Bearer {}'.format(spotify_access_token)
     }
     response = requests.get(spotify_api_url, headers=headers)
     if response.status_code == 200:
@@ -50,8 +48,3 @@ def convert_spotify_to_youtube(playlist_url):
             print(f"Error: No search results found on YouTube for {query}") 
     # Return the YouTube playlist
     return youtube_playlist, track_names, artists
-
-# Example usage
-spotify_playlist_url = "https://open.spotify.com/playlist/1AtALs0N6vfbcWWk6QBW65"
-youtube_playlist = convert_spotify_to_youtube(spotify_playlist_url)
-print(youtube_playlist)

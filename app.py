@@ -1,9 +1,16 @@
 # app.py
+import sys
 from convert_playlist import convert_spotify_to_youtube
 
+spotify_access_token = "<your_spotify_access_token>"
+
 def main():
-    spotify_playlist_url = "https://open.spotify.com/playlist/1AtALs0N6vfbcWWk6QBW65"
-    youtube_playlist, track_names, artists = convert_spotify_to_youtube(spotify_playlist_url)
+    if len(sys.argv) != 2:
+        print("Usage: python app.py <spotify_playlist_url>")
+        return
+
+    spotify_playlist_url = sys.argv[1]
+    youtube_playlist, track_names, artists = convert_spotify_to_youtube(spotify_playlist_url, spotify_access_token)
 
     # Generate the HTML page
     html = f"""
