@@ -3,7 +3,7 @@ import json
 
 from youtubesearchpython import VideosSearch
 
-access_token = "BQAC8cRT77FAKruh6VXDQV85PWXSwphqxQIm_o-YAsQYb_16Xmg2Co9zr_Ph6tfsfyqD6OIcjtxGGuPJIkmodMsdiPWnghrrvBy9wkdsamdGufL2gLk"
+access_token = "<your_spotify_access_token>"
 
 def convert_spotify_to_youtube(playlist_url):
     # Get the playlist ID from the URL
