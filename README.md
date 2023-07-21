@@ -1,5 +1,8 @@
 # listening_room
 
+turn a public spotify playlist into a simple html page that plays the songs from youtube
+
+setup:
 1) clone git repo to local directory & cd into directory
 2) `python -m venv .venv`
 3) `. .venv/bin/activate`
